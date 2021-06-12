@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import SearchBar from '../components/SearchBar'
+import Coins from '../components/Coins'
 
 export default function Home() {
     return (
@@ -10,6 +11,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <SearchBar type="text" placeholder="Search" />
+            <Coins />
         </div>
     )
 }

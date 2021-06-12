@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import SearchBar from '../components/SearchBar';
-import Coins from '../components/Coins';
+import CoinList from '../components/CoinList';
 import { apiUrl } from '../utils/constants';
 
 export default function Home({ filteredCoins }) {
@@ -12,7 +12,7 @@ export default function Home({ filteredCoins }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <SearchBar type="text" placeholder="Search" />
-            <Coins />
+            <CoinList filteredCoins={filteredCoins} />
         </div>
     )
 }

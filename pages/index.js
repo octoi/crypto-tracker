@@ -1,8 +1,9 @@
-import Head from 'next/head'
-import SearchBar from '../components/SearchBar'
-import Coins from '../components/Coins'
+import Head from 'next/head';
+import SearchBar from '../components/SearchBar';
+import Coins from '../components/Coins';
+import { apiUrl } from '../utils/constants';
 
-export default function Home() {
+export default function Home({ filteredCoins }) {
     return (
         <div>
             <Head>
@@ -14,4 +15,12 @@ export default function Home() {
             <Coins />
         </div>
     )
+}
+
+export const getServerSideProps = async () => {
+    const res = await fetch(apiUrl);
+
+    const filteredCoins = await res.json();
+
+    return { props: { filteredCoins } };
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import styles from './Coin.module.css';
+import { coinApiUrl } from '../../utils/constants';
 
 const Coin = ({ coin }) => {
 	return (
@@ -14,9 +15,7 @@ const Coin = ({ coin }) => {
 					/>
 					<h1 className={styles.coin_name}>{coin.name}</h1>
 					<p className={styles.coin_ticker}>{coin.symbol}</p>
-					<p className={styles.coin_current}>
-						{coin.market_data.current_price.usd}
-					</p>
+					<p className={styles.coin_current}>{coin.market_data.current_price.inr}</p>
 				</div>
 			</div>
 		</Layout>
@@ -24,3 +23,10 @@ const Coin = ({ coin }) => {
 }
 
 export default Coin;
+
+export async function getServerSideProps(context) {
+	const { id } = context.query;
+	const res = await fetch(`${coinApiUrl}${id}`);
+	const data = await res.json();
+	return { props: { coin: data } }
+}

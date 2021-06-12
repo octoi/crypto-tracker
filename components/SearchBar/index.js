@@ -1,9 +1,10 @@
 import React from 'react'
+import styles from './search.module.css';
 
-const SearchBar = () => {
+const SearchBar = ({ ...rest }) => {
     return (
-        <div>
-            <h2>search</h2>
+        <div className={styles.coin_search}>
+            <input className={styles.coin_input} {...rest} />
         </div>
     )
 }

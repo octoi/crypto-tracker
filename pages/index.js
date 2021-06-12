@@ -6,8 +6,10 @@ import { apiUrl } from '../utils/constants';
 export default function Home({ filteredCoins }) {
     return (
         <Layout>
-            <SearchBar type="text" placeholder="Search" />
-            <CoinList filteredCoins={filteredCoins} />
+            <div className="coin_app">
+                <SearchBar type="text" placeholder="Search" />
+                <CoinList filteredCoins={filteredCoins} />
+            </div>
         </Layout>
     )
 }

@@ -1,6 +1,6 @@
 import Coins from "./Coins";
 
-export default function CoinList() {
+export default function CoinList({ filteredCoins }) {
 	return (
 		<div>
 			{filteredCoins.map(coin => {
